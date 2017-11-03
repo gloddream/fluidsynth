@@ -5074,7 +5074,3 @@ void fluid_synth_delete_stream_sfloader(fluid_sfloader_t* loader)
   delete_fluid_defsfloader(loader);
 }
 
-fluid_stream_loader_t* fluid_synth_new_asset_stream_loader(void* jniEnv, void* assetManager)
-{
-  return new_fluid_android_asset_stream_loader(jniEnv, assetManager);
-}
