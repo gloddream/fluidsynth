@@ -26,8 +26,8 @@
 /* Todo: Get rid of that 'include' */
 #include "fluid_sys.h"
 #if ANDROID
-#include "asset_manager.h"
-#include "asset_manager_jni.h"
+#include "android/asset_manager.h"
+#include "android/asset_manager_jni.h"
 #endif
 
 
