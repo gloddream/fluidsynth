@@ -1750,11 +1750,13 @@ int fluid_player_set_playback_speed(float speed)
 {
 	if(speed!=0)
 		g_playbackSpeed = speed;
+	return 0;
 
 }
 int fluid_player_reset_playback_speed()
 {
 	g_playbackSpeed = 1.0f;
+	return 0;
 }
 /**
  * Set the tempo of a MIDI player in beats per minute.
