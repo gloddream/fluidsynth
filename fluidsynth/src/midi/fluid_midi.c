@@ -23,6 +23,8 @@
 #include "fluid_synth.h"
 #include "fluid_settings.h"
 
+//gloable playback speed
+float g_playbackSpeed = 1.0f;
 
 static int fluid_midi_event_length(unsigned char event);
 
@@ -1732,6 +1734,7 @@ int fluid_player_set_loop(fluid_player_t *player, int loop)
  */
 int fluid_player_set_midi_tempo(fluid_player_t *player, int tempo)
 {
+	tempo = tempo/g_playbackSpeed;
     player->miditempo = tempo;
     player->deltatime = (double) tempo / player->division / 1000.0; /* in milliseconds */
     player->start_msec = player->cur_msec;
@@ -1743,7 +1746,18 @@ int fluid_player_set_midi_tempo(fluid_player_t *player, int tempo)
 
     return FLUID_OK;
 }
+int fluid_player_set_playback_speed(float speed)
+{
+	if(speed!=0)
+		g_playbackSpeed = speed;
+	return 0;
 
+}
+int fluid_player_reset_playback_speed()
+{
+	g_playbackSpeed = 1.0f;
+	return 0;
+}
 /**
  * Set the tempo of a MIDI player in beats per minute.
  * @param player MIDI player instance
